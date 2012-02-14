@@ -1,0 +1,17 @@
+{
+  "author": "Jaakko-Heikki Heusala <jheusala@iki.fi> (http://www.jhh.me)",
+  "name": "filedb",
+  "description": "Simple database on local JSON files",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jheusala/node-filedb.git"
+  },
+  "main": "src/db.js",
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
