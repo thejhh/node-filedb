@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git://github.com/jheusala/node-filedb.git"
   },
-  "main": "src/db.js",
+  "main": "db.js",
   "engines": {
     "node": ">= 0.6.0"
   },
