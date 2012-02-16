@@ -3,7 +3,7 @@
 filedb
 ======
 
-This is a simple database using local JSON file.
+This is a simple interface to use JSON files.
 
 Examples
 --------
