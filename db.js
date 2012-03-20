@@ -3,7 +3,7 @@ var util = require('util'),
     events = require('events'),
     fs = require('fs'),
     path = require('path'),
-    foreach = require('snippets').foreach,
+d    foreach = require('snippets').foreach,
     config = {};
 
 config.keep_backup = true;
@@ -165,7 +165,16 @@ Data.prototype.commit = function(fn) {
 /* Module */
 var mod = module.exports = {};
 
-mod.config = config;
+mod._config = config;
+
+/* Configure DMAPI from outside */
+mod.config = function(data) {
+    var my = this;
+    foreach(data).each(function(v, k) {
+        my._config[k] = v;
+    });
+	return my;
+}
 
 mod.Data = Data;
 
