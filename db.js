@@ -3,7 +3,7 @@ var util = require('util'),
     events = require('events'),
     fs = require('fs'),
     path = require('path'),
-d    foreach = require('snippets').foreach,
+    foreach = require('snippets').foreach,
     config = {};
 
 config.keep_backup = true;
