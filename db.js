@@ -3,7 +3,10 @@ var util = require('util'),
     events = require('events'),
     fs = require('fs'),
     path = require('path'),
-    foreach = require('snippets').foreach;
+    foreach = require('snippets').foreach,
+    config = {};
+
+config.keep_backup = true;
 
 /* Data */
 function Data() {
@@ -103,7 +106,19 @@ Data.prototype.save = function(target, fn) {
 							fn(err);
 							return;
 						}
-						fn();
+						
+						if(!config.keep_backup) {
+							fn();
+							return;
+						}
+						
+						fs.unlink(target_bak, function(err) {
+							if(err) {
+								fn(err);
+							} else {
+								fn();
+							}
+						});
 					});
 				});
 				return;
@@ -150,9 +165,13 @@ Data.prototype.commit = function(fn) {
 /* Module */
 var mod = module.exports = {};
 
+mod.config = config;
+
 mod.Data = Data;
 
 mod.open = function(target) {
 	var data = new Data();
 	return data.init(target);
 }
+
+/* EOF */
